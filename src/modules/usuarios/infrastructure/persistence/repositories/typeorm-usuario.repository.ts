@@ -63,6 +63,7 @@ export class TypeOrmUsuarioRepository implements UsuarioRepository {
       nombre: usuario.nombre,
       email: usuario.email.getValue(),
       telefono: usuario.telefono,
+      // El transformer en la entidad convertirá boolean -> 'Activo'/'Inactivo'
       estado: usuario.estado,
       tipo: usuario.tipo,
       password: usuario.password,
@@ -78,7 +79,7 @@ export class TypeOrmUsuarioRepository implements UsuarioRepository {
     if (usuario.nombre) updateData.nombre = usuario.nombre;
     if (usuario.email) updateData.email = usuario.email.getValue();
     if (usuario.telefono) updateData.telefono = usuario.telefono;
-    if (usuario.estado !== undefined) updateData.estado = usuario.estado;
+  if (usuario.estado !== undefined) updateData.estado = usuario.estado; // transformer maneja conversión
     if (usuario.tipo) updateData.tipo = usuario.tipo;
     if (usuario.password) updateData.password = usuario.password;
 

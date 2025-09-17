@@ -15,4 +15,13 @@ export const config = {
     secret: process.env.JWT_SECRET || 'secret-key-upchiapas',
     expiresIn: process.env.JWT_EXPIRES_IN || '24h',
   },
+  frontend: {
+    origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
+  },
+  google: {
+    clientId: process.env.GOOGLE_CLIENT_ID || '',
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+  redirectUri: process.env.GOOGLE_REDIRECT_URI || 'http://localhost:3002/auth/google/callback',
+  frontendRedirectUri: process.env.FRONTEND_REDIRECT_URI || '',
+  },
 };

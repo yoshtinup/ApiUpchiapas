@@ -41,7 +41,7 @@ const initializeRoutes = () => {
   const unidadRoutes = require('./modules/unidades/infrastructure/http/routes/unidad.routes').default;
   const actividadRoutes = require('./modules/actividades/infrastructure/http/routes/actividad.routes').default;
   const intervencionRoutes = require('./modules/intervenciones/infrastructure/http/routes/intervencion.routes').default;
-
+  const loginGoogleRoutes = require('./modules/auth/infrastructure/http/routes/loginGoogle.routes').default;
   // Registrar rutas
   console.log('📝 [APP] Registrando ruta: /usuarios');
   app.use('/usuarios', usuarioRoutes);
@@ -63,6 +63,9 @@ const initializeRoutes = () => {
   
   console.log('🆘 [APP] Registrando ruta: /intervenciones');
   app.use('/api/intervenciones', intervencionRoutes);
+  
+  console.log('🔐 [APP] Registrando ruta: /auth/google');
+  app.use('/auth/google', loginGoogleRoutes);
   
   console.log('📚 [APP] Registrando ruta alternativa: /api/materias');
   app.use('/api/materias', materiaRoutes);
